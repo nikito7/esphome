@@ -7,24 +7,46 @@ switch:
       inverted: yes
 
   - platform: template
-    name: "Blink 250ms"
+    name: "Blink 100ms"
     optimistic: yes
-    id: blink_250ms
+    id: blink_100ms
     turn_on_action:
+    - switch.turn_off: blink_300ms
     - switch.turn_off: blink_500ms
-    - switch.turn_off: blink_750ms
     - while:
         condition:
           lambda: return true;
         then:
         - switch.turn_on: led5
-        - delay: 250ms 
+        - delay: 100ms 
         - switch.turn_off: led5
-        - delay: 250ms 
+        - delay: 100ms 
         - switch.turn_on: led5
-        - delay: 250ms 
+        - delay: 100ms 
         - switch.turn_off: led5
         - delay: 2000ms 
+    turn_off_action:
+    - switch.turn_off: led5
+
+  - platform: template
+    name: "Blink 300ms"
+    optimistic: yes
+    id: blink_300ms
+    turn_on_action:
+    - switch.turn_off: blink_100ms
+    - switch.turn_off: blink_500ms
+    - while:
+        condition:
+          lambda: return true;
+        then:
+        - switch.turn_on: led5
+        - delay: 300ms 
+        - switch.turn_off: led5
+        - delay: 300ms
+        - switch.turn_on: led5
+        - delay: 300ms 
+        - switch.turn_off: led5
+        - delay: 2000ms
     turn_off_action:
     - switch.turn_off: led5
 
@@ -33,8 +55,8 @@ switch:
     optimistic: yes
     id: blink_500ms
     turn_on_action:
-    - switch.turn_off: blink_250ms
-    - switch.turn_off: blink_750ms
+    - switch.turn_off: blink_100ms
+    - switch.turn_off: blink_300ms
     - while:
         condition:
           lambda: return true;
@@ -45,28 +67,6 @@ switch:
         - delay: 500ms
         - switch.turn_on: led5
         - delay: 500ms 
-        - switch.turn_off: led5
-        - delay: 2000ms
-    turn_off_action:
-    - switch.turn_off: led5
-
-  - platform: template
-    name: "Blink 750ms"
-    optimistic: yes
-    id: blink_750ms
-    turn_on_action:
-    - switch.turn_off: blink_250ms
-    - switch.turn_off: blink_500ms
-    - while:
-        condition:
-          lambda: return true;
-        then:
-        - switch.turn_on: led5
-        - delay: 750ms 
-        - switch.turn_off: led5
-        - delay: 750ms
-        - switch.turn_on: led5
-        - delay: 750ms 
         - switch.turn_off: led5
         - delay: 2000ms
     turn_off_action:
