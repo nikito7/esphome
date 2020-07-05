@@ -20,7 +20,11 @@ switch:
         - switch.turn_on: led5
         - delay: 250ms 
         - switch.turn_off: led5
-        - delay: 250ms
+        - delay: 250ms 
+        - switch.turn_on: led5
+        - delay: 250ms 
+        - switch.turn_off: led5
+        - delay: 2000ms 
     turn_off_action:
     - switch.turn_off: led5
 
@@ -39,6 +43,10 @@ switch:
         - delay: 500ms 
         - switch.turn_off: led5
         - delay: 500ms
+        - switch.turn_on: led5
+        - delay: 500ms 
+        - switch.turn_off: led5
+        - delay: 2000ms
     turn_off_action:
     - switch.turn_off: led5
 
@@ -57,5 +65,9 @@ switch:
         - delay: 750ms 
         - switch.turn_off: led5
         - delay: 750ms
+        - switch.turn_on: led5
+        - delay: 750ms 
+        - switch.turn_off: led5
+        - delay: 2000ms
     turn_off_action:
     - switch.turn_off: led5
