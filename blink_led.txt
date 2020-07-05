@@ -1,1 +1,55 @@
-Dffkfk
+switch:
+
+  - platform: gpio
+    id: led5
+    pin:
+      number: 5
+      inverted: yes
+
+  - platform: template
+    name: "Blink 250ms"
+    optimistic: yes
+    id: blink_250ms
+    turn_on_action:
+    - while:
+        condition:
+          lambda: return true;
+        then:
+        - switch.turn_on: led5
+        - delay: 250ms 
+        - switch.turn_off: led5
+        - delay: 250ms
+    turn_off_action:
+    - switch.turn_off: led5
+
+  - platform: template
+    name: "Blink 500ms"
+    optimistic: yes
+    id: blink_500ms
+    turn_on_action:
+    - while:
+        condition:
+          lambda: return true;
+        then:
+        - switch.turn_on: led5
+        - delay: 500ms 
+        - switch.turn_off: led5
+        - delay: 500ms
+    turn_off_action:
+    - switch.turn_off: led5
+
+  - platform: template
+    name: "Blink 750ms"
+    optimistic: yes
+    id: blink_750ms
+    turn_on_action:
+    - while:
+        condition:
+          lambda: return true;
+        then:
+        - switch.turn_on: led5
+        - delay: 750ms 
+        - switch.turn_off: led5
+        - delay: 750ms
+    turn_off_action:
+    - switch.turn_off: led5
