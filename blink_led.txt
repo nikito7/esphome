@@ -11,6 +11,8 @@ switch:
     optimistic: yes
     id: blink_250ms
     turn_on_action:
+    - switch.turn_off: blink_500ms
+    - switch.turn_off: blink_750ms
     - while:
         condition:
           lambda: return true;
@@ -27,6 +29,8 @@ switch:
     optimistic: yes
     id: blink_500ms
     turn_on_action:
+    - switch.turn_off: blink_250ms
+    - switch.turn_off: blink_750ms
     - while:
         condition:
           lambda: return true;
@@ -43,6 +47,8 @@ switch:
     optimistic: yes
     id: blink_750ms
     turn_on_action:
+    - switch.turn_off: blink_250ms
+    - switch.turn_off: blink_500ms
     - while:
         condition:
           lambda: return true;
