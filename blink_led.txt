@@ -17,14 +17,14 @@ switch:
         condition:
           lambda: return true;
         then:
-        - switch.turn_on: led5
-        - delay: 100ms 
-        - switch.turn_off: led5
-        - delay: 100ms 
-        - switch.turn_on: led5
-        - delay: 100ms 
-        - switch.turn_off: led5
         - delay: 1500ms
+        - switch.turn_on: led5
+        - delay: 100ms 
+        - switch.turn_off: led5
+        - delay: 100ms 
+        - switch.turn_on: led5
+        - delay: 100ms 
+        - switch.turn_off: led5
     turn_off_action:
     - switch.turn_off: led5
 
@@ -39,6 +39,7 @@ switch:
         condition:
           lambda: return true;
         then:
+        - delay: 1500ms
         - switch.turn_on: led5
         - delay: 300ms 
         - switch.turn_off: led5
@@ -46,7 +47,6 @@ switch:
         - switch.turn_on: led5
         - delay: 300ms 
         - switch.turn_off: led5
-        - delay: 1500ms
     turn_off_action:
     - switch.turn_off: led5
 
@@ -61,6 +61,7 @@ switch:
         condition:
           lambda: return true;
         then:
+        - delay: 1500ms
         - switch.turn_on: led5
         - delay: 500ms 
         - switch.turn_off: led5
@@ -68,6 +69,5 @@ switch:
         - switch.turn_on: led5
         - delay: 500ms 
         - switch.turn_off: led5
-        - delay: 1500ms
     turn_off_action:
     - switch.turn_off: led5
