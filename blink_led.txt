@@ -11,42 +11,19 @@ switch:
     optimistic: yes
     id: blink_100ms
     turn_on_action:
-    - switch.turn_off: blink_300ms
     - switch.turn_off: blink_500ms
     - while:
         condition:
           lambda: return true;
         then:
+        - switch.turn_on: led5
+        - delay: 100ms 
+        - switch.turn_off: led5
+        - delay: 100ms 
+        - switch.turn_on: led5
+        - delay: 100ms 
+        - switch.turn_off: led5
         - delay: 1500ms
-        - switch.turn_on: led5
-        - delay: 100ms 
-        - switch.turn_off: led5
-        - delay: 100ms 
-        - switch.turn_on: led5
-        - delay: 100ms 
-        - switch.turn_off: led5
-    turn_off_action:
-    - switch.turn_off: led5
-
-  - platform: template
-    name: "Blink 300ms"
-    optimistic: yes
-    id: blink_300ms
-    turn_on_action:
-    - switch.turn_off: blink_100ms
-    - switch.turn_off: blink_500ms
-    - while:
-        condition:
-          lambda: return true;
-        then:
-        - delay: 1500ms
-        - switch.turn_on: led5
-        - delay: 300ms 
-        - switch.turn_off: led5
-        - delay: 300ms
-        - switch.turn_on: led5
-        - delay: 300ms 
-        - switch.turn_off: led5
     turn_off_action:
     - switch.turn_off: led5
 
@@ -56,12 +33,10 @@ switch:
     id: blink_500ms
     turn_on_action:
     - switch.turn_off: blink_100ms
-    - switch.turn_off: blink_300ms
     - while:
         condition:
           lambda: return true;
         then:
-        - delay: 1500ms
         - switch.turn_on: led5
         - delay: 500ms 
         - switch.turn_off: led5
@@ -69,5 +44,6 @@ switch:
         - switch.turn_on: led5
         - delay: 500ms 
         - switch.turn_off: led5
+        - delay: 1500ms
     turn_off_action:
     - switch.turn_off: led5
