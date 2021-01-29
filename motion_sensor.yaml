@@ -1,0 +1,14 @@
+binary_sensor:
+
+  - platform: status
+    name: "ESP32 Status"
+
+  - platform: gpio
+    pin: 17
+    name: "ESP32 PIR"
+    device_class: motion
+    filters:
+      - delayed_on: 5s
+      - delayed_off: 5s
+
+# eof
