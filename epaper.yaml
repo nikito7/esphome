@@ -1,0 +1,68 @@
+###
+
+spi:
+
+  clk_pin: 18
+  mosi_pin: 23
+
+font:
+
+  - file: 'lucida_console.ttf'
+    id: ft1
+    size: 26
+  - file: 'lucida_console.ttf'
+    id: ft2
+    size: 30
+
+
+display:
+
+  - platform: waveshare_epaper
+    cs_pin: 5
+    dc_pin: 17
+    busy_pin: 4
+    reset_pin: 16
+    model: 2.13in-ttgo-b73
+    full_update_every: 1
+    update_interval: 15s
+    rotation: 0
+    lambda: |-
+      it.strftime(20, 20, id(ft2), "%H:%M", id(esptime).now());
+      it.printf(20, 60, id(ft1), "%.1f", id(t_gn).state);
+      it.printf(20, 90, id(ft1), "%.1f", id(t_out).state);
+      // 250x128
+      // 250x122
+      it.rectangle(0, 6, 10, 122);
+      it.rectangle(240, 6, 10, 122);
+      it.filled_rectangle(0, id(ssaver), 10, 10);
+      it.filled_rectangle(240, id(ssaver), 10, 10);
+      // var
+      if (id(ssaver) > 118) {
+        id(ssaver) = 6;
+      } else {
+        id(ssaver) += 10;
+      }
+
+globals:
+
+   - id: ssaver
+     type: int
+     restore_value: yes
+     initial_value: '6' 
+
+###
+
+  - platform: homeassistant
+    id: t_gn
+    entity_id: sensor.mmc_33_temperature
+    internal: true
+
+  - platform: homeassistant
+    id: t_out
+    entity_id: sensor.mmc_e3_temperature
+    internal: true
+
+###
+##
+#
+
