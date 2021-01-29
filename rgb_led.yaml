@@ -1,0 +1,30 @@
+output:
+
+  - platform: ledc
+    pin: 16
+    id: pwm_16
+
+  - platform: ledc
+    pin: 17
+    id: pwm_17
+    max_power: 50%
+
+  - platform: ledc
+    pin: 18
+    id: pwm_18
+    max_power: 50%
+
+light:
+
+  - platform: rgb
+    name: "T1 RGB Led"
+    id: rgb_led
+    red: pwm_16
+    green: pwm_17
+    blue: pwm_18
+    effects:
+      - random:
+          transition_length: 2s
+          update_interval: 9s
+
+# eof
