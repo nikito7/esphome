@@ -1,0 +1,17 @@
+###
+
+  - platform: ble_rssi
+    mac_address: E7:2E:00:xxxx
+    name: "T1 LYWSD RSSI"
+
+  - platform: xiaomi_lywsd02
+    mac_address: E7:2E:00:xxxx
+    temperature:
+      name: "T1 LYWSD Temp"
+    humidity:
+      name: "T1 LYWSD Hum"
+      accuracy_decimals: 0
+    battery_level:
+      name: "T1 LYWSD Batt"
+
+###
