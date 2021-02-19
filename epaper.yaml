@@ -23,9 +23,9 @@ display:
     busy_pin: 4
     reset_pin: 16
     model: 2.13in-ttgo-b73
-    full_update_every: 1
-    update_interval: 15s
-    rotation: 0
+    full_update_every: 5
+    update_interval: 31s
+    rotation: 90
     lambda: |-
       it.strftime(20, 20, id(ft2), "%H:%M", id(esptime).now());
       it.printf(20, 60, id(ft1), "%.1f", id(t_gn).state);
