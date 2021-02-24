@@ -1,0 +1,9 @@
+  - platform: adc
+    pin: 35
+    name: "${dev} Battery Level"
+    update_interval: 30s
+    attenuation: 11db
+    filters:
+      - multiply: 1.828
+    accuracy_decimals: 2
+

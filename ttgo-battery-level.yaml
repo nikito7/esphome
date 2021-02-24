@@ -1,6 +1,0 @@
-  - platform: adc
-    pin: 35
-    name: "${dev} Battery"
-    update_interval: 30s
-    attenuation: 11db
-
