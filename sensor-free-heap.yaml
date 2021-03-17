@@ -1,0 +1,13 @@
+###
+
+  - platform: template
+    name: "${dev} ESP Free Heap"
+    lambda: |-
+      int heap = ESP.getFreeHeap();
+      return heap / 1024.0;
+    unit_of_measurement: "kB"
+    update_interval: 5s
+
+###
+##
+#
