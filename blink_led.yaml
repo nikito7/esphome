@@ -4,7 +4,7 @@ switch:
     id: led_pin
     pin:
       number: 5
-      inverted: no
+      inverted: yes
 
   - platform: template
     name: "${dev} ESP Blink 5"
