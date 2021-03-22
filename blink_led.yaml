@@ -4,7 +4,7 @@ switch:
     id: led_pin
     pin:
       number: 5
-      inverted: yes
+      inverted: yes # lolin32 yes. ttgo no.
 
   - platform: template
     name: "${dev} ESP Blink 5"
