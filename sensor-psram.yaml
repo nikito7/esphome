@@ -1,0 +1,10 @@
+  - platform: template
+    name: "${dev} ESP Free Psram"
+    lambda: |-
+      int heap = ESP.getFreePsram();
+      return heap / 1024.0;
+    unit_of_measurement: "kB"
+    update_interval: 30s
+    icon: mdi:chip
+
+# EOF
