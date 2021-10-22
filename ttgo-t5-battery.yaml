@@ -2,23 +2,12 @@
 
   - platform: adc
     pin: 35
-    name: "${dev} Battery Raw"
+    name: "${dev} Battery Level"
     update_interval: 30s
     attenuation: 11db
-    id: battraw
-    accuracy_decimals: 5
-    unit_of_measurement: ""
-    icon: "mdi:battery"
-
-  - platform: template
-    name: "${dev} Battery Level"
-    update_interval: 5s
-    lambda: return id(battraw).state;
     filters:
       - multiply: 1.84
     accuracy_decimals: 2
-    unit_of_measurement: "V"
-    icon: "mdi:battery"
     id: battv
 
 ###
